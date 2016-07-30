@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'groups#index'
 
-   resources :groups
+   resources :groups do
+     resources :posts, except: [:show, :index]
+   end
+   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
