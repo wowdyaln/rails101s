@@ -97,6 +97,10 @@ GEM
       tilt
     highline (1.6.21)
     hike (1.2.3)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (0.7.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
@@ -122,8 +126,14 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.0.1)
+      byebug (~> 3.4)
+      pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.6.0)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -220,6 +230,7 @@ GEM
     uglifier (2.6.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode-display_width (0.1.1)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.0.0)
@@ -232,14 +243,18 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_rails_console
+  awesome_rails_console (~> 0.4.0)
   bootstrap-sass
   brakeman
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  hirb
+  hirb-unicode
   jbuilder (~> 2.0)
   jquery-rails
+  pry-byebug
+  pry-stack_explorer
   rails (= 4.2.0)
   rails-erd
   rails_best_practices
