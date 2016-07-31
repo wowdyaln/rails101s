@@ -42,6 +42,7 @@ gem 'devise'
 group :development do
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
+  gem "rails-erd"
 end
 
 group :development, :test do
