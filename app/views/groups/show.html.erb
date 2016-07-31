@@ -21,8 +21,10 @@
           <td><%= post.content %></td>
           <td><%= post.user_id %></td>
           <td>
+            <% if post.editable_by?(current_user) %>
             <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-default btn-xs")%>
             <%= link_to("Delete", group_post_path(post.group, post), class: "btn btn-default btn-xs ", method: :delete, data: { confirm: "Are you sure?" } )%>
+            <% end %>
           </td>
         </tr>
       <% end %>
