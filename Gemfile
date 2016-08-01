@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem "awesome_rails_console"
+gem 'awesome_rails_console', '~> 0.4.0'
 
 gem 'bootstrap-sass'
 
@@ -42,6 +42,7 @@ gem 'devise'
 group :development do
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
+  gem "rails-erd"
 end
 
 group :development, :test do
@@ -53,4 +54,16 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+# Please clean up duplicated gems if any.
+# Feel free to remove gems that you don't want to use or if they conflict with other gem dependencies. (you might need to update .pryrc also)
+group :development, :test do
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+end
+
+group :development, :test do
 end

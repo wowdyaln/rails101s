@@ -14,6 +14,7 @@ class GroupsController < ApplicationController
     @group = current_user.groups.create(group_params)
 
     if @group.save
+      current_user.join!(@group)
       redirect_to groups_path
     else
       render :new
@@ -47,6 +48,33 @@ class GroupsController < ApplicationController
     else
       render :index
     end
+  end
+
+  def join
+    @group = Group.find(params[:id])
+
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+      flash[:notice] = "你已經成功加入此group了！"
+
+    else
+      flash[:warning] = "你已經是此 group成員了"
+    end
+
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+      flash[:warning] = "你已經退出此 group，後回有期~"
+    else
+      flash[:danger] = "你還不是成員，退無可退"
+    end
+
+    redirect_to group_path(@group)
   end
 
   private

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :find_group
   before_action :authenticate_user!
+  before_action :require_member
 
 
   def new
@@ -51,6 +52,13 @@ class PostsController < ApplicationController
 
     def find_group
       @group = Group.find(params[:group_id])
+    end
+
+    def require_member
+      if !current_user.is_member_of?(@group)
+        redirect_to group_path(@group)
+        flash[:warning] = "發文前，請先加入此group"
+      end
     end
 
 end
