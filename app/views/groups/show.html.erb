@@ -21,6 +21,24 @@
   <table class="table">
     <thead>
       <tr>
+        <th>member:</th>
+        <th>member_id:</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @members.each do |member| %>
+        <tr>
+          <td><%= member.name %></td>
+          <td><%= member.id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <thead>
+      <tr>
         <th>文章</th>
         <th>user id</th>
         <th colspan="2"></th>

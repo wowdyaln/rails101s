@@ -8,6 +8,7 @@
       <tr>
         <td>#</td>
         <td>Title</td>
+        <td>owner</td>
         <td>Description</td>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
         <tr>
           <td>#</td>
           <td><%= link_to(group.title, group_path(group)) %></td>
+          <td><%= group.user_id %></td>
           <td><%= group.description %></td>
           <td>
             <% if group.editable_by?(current_user) %>
