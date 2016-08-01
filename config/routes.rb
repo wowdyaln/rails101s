@@ -8,8 +8,12 @@ Rails.application.routes.draw do
 
    resources :groups do
      resources :posts, except: [:show, :index]
+     member do
+       post :join
+       post :quit
+     end
    end
-   
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
