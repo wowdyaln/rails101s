@@ -7,9 +7,11 @@
     <thead>
       <tr>
         <td>#</td>
-        <td>Title</td>
+        <td>Group Title</td>
         <td>owner</td>
         <td>Description</td>
+        <td>is member of ?</td>
+        <td>Do something</td>
       </tr>
     </thead>
     <tbody>
@@ -19,7 +21,14 @@
           <td><%= link_to(group.title, group_path(group)) %></td>
           <td><%= group.user_id %></td>
           <td><%= group.description %></td>
+
+          <% if current_user.is_member_of?(group) %>
+        <td>YES</td>
+        <% else %>
+        <td>X</td>
+          <% end %>
           <td>
+
             <% if group.editable_by?(current_user) %>
             <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
             <%= link_to("Delete", group_path(group),class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
