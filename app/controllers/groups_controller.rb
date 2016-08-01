@@ -57,7 +57,7 @@ class GroupsController < ApplicationController
       flash[:notice] = "你已經成功加入此group了！"
 
     else
-      flash[:notice] = "你已經是此 group成員了"
+      flash[:warning] = "你已經是此 group成員了"
     end
 
     redirect_to group_path(@group)
@@ -68,9 +68,9 @@ class GroupsController < ApplicationController
 
     if current_user.is_member_of?(@group)
       current_user.quit!(@group)
-      flash[:notice] = "你已經退出此 group，後回有期~"
+      flash[:warning] = "你已經退出此 group，後回有期~"
     else
-      flash[:notice] = "你還不是成員，退無可退"
+      flash[:danger] = "你還不是成員，退無可退"
     end
 
     redirect_to group_path(@group)
