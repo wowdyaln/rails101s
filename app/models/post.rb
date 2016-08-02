@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
   delegate :title, to: :group, prefix: true
   delegate :name, to: :author, prefix: true
 
+  scope :recent, -> { order("updated_at DESC") }
+
   def editable_by?(abc)
     abc == author
   end
