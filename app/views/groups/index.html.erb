@@ -8,8 +8,8 @@
       <tr>
         <td>#</td>
         <td>Group Title</td>
-        <td>owner</td>
-        <td>Description</td>
+        <td>Group owner</td>
+        <td>Group Description</td>
         <td>Are you member of ?</td>
         <td>Do something</td>
         <td>
@@ -22,7 +22,7 @@
         <tr>
           <td>#</td>
           <td><%= link_to(group.title, group_path(group)) %></td>
-          <td><%= group.owner.name %></td>
+          <td><%= group.owner_name %></td>
           <td><%= group.description %></td>
 
           <% if current_user.is_member_of?(group) %>
