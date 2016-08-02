@@ -14,6 +14,13 @@ Rails.application.routes.draw do
      end
    end
 
+   namespace :account do
+      resources :groups
+      resources :posts
+   end
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
