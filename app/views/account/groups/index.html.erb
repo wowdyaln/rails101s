@@ -10,6 +10,7 @@
         </th>
         <th> Description </th>
         <th> Post Count </th>
+        <th> 文章數：</th>
         <th> Last Update </th>
       </tr>
     </thead>
@@ -24,6 +25,7 @@
           </td>
           <td><%= group.description %></td>
           <td><%= group.posts.count %></td>
+          <td><%= group.posts.size %></td>
           <td><%= group.updated_at %></td>
         </tr>
 
