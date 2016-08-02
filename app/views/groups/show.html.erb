@@ -12,14 +12,16 @@
   <% else %>
     <%= link_to("Join Group", join_group_path(@group), method: :post, class: "btn btn-info") %>
   <% end %>
-<% end %>
+
 
   </div>
   <h2><%= @group.title %>
-<% if current_user.is_member_of?(@group) %>
-    <h5>(You are a member of this group)</h5>
-<% end %>
+  <% if current_user.is_member_of?(@group) %>
+      <h5>(You are a member of this group)</h5>
+  <% end %>
   </h2>
+<% end %>
+  
   <p><%= @group.description %></p>
 
   <table class="table">
