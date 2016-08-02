@@ -43,6 +43,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>post id</th>
         <th>文章content</th>
         <th>Author</th>
         <th colspan="2"></th>
@@ -51,6 +52,7 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
+          <th><%= post.id %></th>
           <td><%= post.content %></td>
           <td><%= post.author_name %></td>
           <td>

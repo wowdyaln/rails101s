@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :find_group
+  before_action :find_group, except: [:index]
   before_action :authenticate_user!
-  before_action :require_member
+  before_action :require_member, except: [:index]
 
 
   def new
@@ -42,6 +42,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.destroy
     redirect_to group_path(@group), alert: "post has deleted!!"
+  end
+
+
+  def index
+    @posts = Post.all
   end
 
     private
