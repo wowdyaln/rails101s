@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
+  require 'pry'
+
+  binding.pry
+
   before_action :find_group, except: [:index]
   before_action :authenticate_user!
   before_action :require_member, except: [:index]
+
+
 
 
   def new

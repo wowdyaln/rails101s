@@ -1,6 +1,9 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  require 'pry'
 
+  binding.pry
+
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @groups = Group.all
